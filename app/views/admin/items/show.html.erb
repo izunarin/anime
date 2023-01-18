@@ -1,0 +1,61 @@
+<div class="container">
+  <h2>アニメ一覧</h2>
+
+  <div class="row">
+    <table>
+     <tr>
+        <td width="200">
+          <h3>アニメ名</h3>
+        </td>
+        <td width="300"></td>
+      </tr>
+
+      <tr>
+        <td colspan="2">
+          <%= @item.name %>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <%= @item.genre_i18n %>
+        </td>
+
+        <td>
+          <%= @item.weekday_i18n %>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <h3>アニメ説明</h3>
+        </td>
+      </tr>
+
+      <tr>
+       <td colspan="2"><%= @item.introduction %></td>
+      </tr>
+
+      <tr>
+        <td>
+          <h3>アニメURL</h3>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2">
+          <a><%= @item.url %></a>
+        </td>
+      </tr>
+      
+    <tr>
+     <td></td>
+     <td><%= link_to edit_admin_item_path(@item.id) do %>
+     <h3 class="btn btn-success">編集する</h3>
+     <% end %>
+     </td>
+   </tr>
+    </table>
+    
+  </div>
+</div>

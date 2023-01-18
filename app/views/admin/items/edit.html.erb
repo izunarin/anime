@@ -1,2 +1,48 @@
-<h1>Admin::Animes#edit</h1>
-<p>Find me in app/views/admin/animes/edit.html.erb</p>
+<div class="container">
+  <h1>商品編集</h1>
+  <div class="row">
+    <%= form_with model: @item,url: admin_item_path(@item.id), method: :patch do |f| %>
+    
+ <table>
+    <tr>
+      <td>アニメ名</td>
+    </tr>
+    
+   <tr>
+    <td><%= f.text_field :name, size: "50" %></td>
+   </tr>
+   
+   <tr>
+     <td>
+       アニメ説明
+     </td>
+   </tr>
+   
+   <tr>
+    <td><%= f.text_area :introduction, cols:"50",rows:"10" %></td>
+   </tr>
+
+   <tr>
+    <td><%= f.select :genre, Item.genres.keys.map { |k| [I18n.t("enums.item.genre.#{k}"), k] } %></td>
+    <td><%= f.select :weekday, Item.weekdays.keys.map { |k| [I18n.t("enums.item.weekday.#{k}"), k] } %></td>
+   </tr>
+
+   <tr>
+    <td>アニメURL</td>
+   </tr>
+
+   <tr>
+    <td>
+     <%= f.text_field :url, size: "50" %>
+    </td>
+   </tr>
+
+   <tr>
+    <td></td>
+    <td><%= f.submit "変更を保存", class:"btn btn-success" %></td>
+   </tr>
+  </table>
+  
+  <% end %>
+  </div>
+</div>

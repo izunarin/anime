@@ -1,15 +1,60 @@
-<div class="cotainer">
+<div class="container">
 
-<h2>アニメ一覧</h2>
-<%= form_with model: @item,url: admin_items_path do |f| %>
+<h2>アニメ新規登録</h2>
+
   <div class="row">
+    <%= form_with model: @item,url: admin_items_path do |f| %>
     <table>
       <tr>
-        <td>
-          
+        <td width="200">
+          アニメ名
+        </td>
+        <td width="300"></td>
+      </tr>
+
+      <tr>
+        <td colspan="2">
+          <%= f.text_field :name, size: "70" %>
         </td>
       </tr>
-    </table>
+
+      <tr>
+        <td>
+          <%= f.select :genre, Item.genres.keys.map { |k| [I18n.t("enums.item.genre.#{k}"), k] } %>
+        </td>
+
+        <td>
+          <%= f.select :weekday, Item.weekdays.keys.map { |k| [I18n.t("enums.item.weekday.#{k}"), k] } %>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          アニメ説明
+        </td>
+      </tr>
+
+      <tr>
+       <td><%= f.text_area :introduction, cols:"50",rows:"10" %></td>
+      </tr>
+
+      <tr>
+        <td>
+          URL
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2">
+          <%= f.text_field :url, size: "70" %>
+        </td>
+      </tr>
+      
+      <tr>
+       <td></td>
+       <td><%= f.submit "新規登録", class:"btn btn-success" %></td>
+      </tr>
+   </table>
+    <% end %>
   </div>
-<% end %>
 </div>
