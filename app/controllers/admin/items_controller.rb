@@ -4,7 +4,13 @@ class Admin::ItemsController < ApplicationController
   end
 
   def index
-    @items = Item.page(params[:page])
+    if params[:genre].present?
+      @items = Item.where(genre: params[:genre]).page(params[:page])
+    elsif params[:weekday].present?
+      @items = Item.where(weekday: params[:weekday]).page(params[:page])
+    else
+      @items = Item.page(params[:page])
+    end
   end
 
   def create
@@ -26,7 +32,7 @@ class Admin::ItemsController < ApplicationController
     item.update(item_params)
     redirect_to admin_item_path(item.id)
   end
-  
+
     private
 
   def item_params

@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2023_01_11_124858) do
   create_table "customers", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "name", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -46,8 +47,8 @@ ActiveRecord::Schema.define(version: 2023_01_11_124858) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.string "genre", null: false
-    t.string "weekday", null: false
+    t.integer "genre", null: false
+    t.integer "weekday", null: false
     t.text "name", null: false
     t.text "introduction", null: false
     t.text "url", null: false

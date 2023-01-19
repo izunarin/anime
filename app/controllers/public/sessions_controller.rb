@@ -40,7 +40,7 @@ class Public::SessionsController < Devise::SessionsController
 
   return if !@customer
 
-  if !@customer.valid_name?(params[:customer][:name])|| @customer.is_deleted == true
+  if !@customer.valid_password?(params[:customer][:password])|| @customer.is_deleted == true
    redirect_to root_path
    
   end

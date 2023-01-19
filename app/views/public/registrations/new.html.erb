@@ -16,6 +16,14 @@
     </tr>
     
     <tr>
+    <div class="field">
+     <th><%= f.label :パスワード %></th>
+     <td><%= f.password_field :password, autocomplete: "current-password" %></td>
+     </div>
+    </tr>
+
+    
+    <tr>
       <td></td>
       <td><%= f.submit "新規登録", class:"btn btn-success" %></td>
     </tr>
@@ -28,4 +36,4 @@
   </div>
 </div>
 
-<%= render "public/shared/links" %>
+

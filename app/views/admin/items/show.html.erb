@@ -1,11 +1,11 @@
 <div class="container">
-  <h2>アニメ一覧</h2>
+  <h2>アニメ詳細</h2>
 
   <div class="row">
     <table>
      <tr>
         <td width="200">
-          <h3>アニメ名</h3>
+          <h4>アニメ名</h4>
         </td>
         <td width="300"></td>
       </tr>
@@ -16,6 +16,16 @@
         </td>
       </tr>
 
+　　　<tr>
+        <td>
+          <h4>季節</h4>
+        </td>
+
+        <td>
+          <h4>曜日</h4>
+        </td>
+      </tr>
+      
       <tr>
         <td>
           <%= @item.genre_i18n %>
@@ -28,7 +38,7 @@
 
       <tr>
         <td>
-          <h3>アニメ説明</h3>
+          <h4>アニメ説明</h4>
         </td>
       </tr>
 
@@ -38,13 +48,13 @@
 
       <tr>
         <td>
-          <h3>アニメURL</h3>
+          <h4>アニメURL</h4>
         </td>
       </tr>
 
       <tr>
         <td colspan="2">
-          <a><%= @item.url %></a>
+          <%=link_to  "Amazon Prime Videoリンク",@item.url %>
         </td>
       </tr>
       

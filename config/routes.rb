@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  
+
   root to: "public/items#index"
-  
+
   namespace :admin do
-    resources :comments, only: [:index, :destroy]
+    resources :comments, only: [:show, :index, :destroy]
     patch 'customers/withdraw' => "customers#withdraw"
     resources :customers, only: [:index]
     resources :items, only: [:new, :index, :create, :show, :edit, :update]
@@ -14,14 +14,16 @@ Rails.application.routes.draw do
     resources :likes, only: [:index, :create, :destroy]
     resources :items, only: [:show]
   end
- 
-   post '/homes/guest_sign_in', to: 'homes#new_guest'
+
+  devise_scope :customer do
+     post '/customers/guest_sign_in', to: 'customers/sessions#guest_sign_in'
+  end
 
   devise_for :customers,skip: [:passwords], controllers: {
    registrations: "public/registrations",
    sessions: 'public/sessions'
   }
-  
+
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
    sessions: "admin/sessions"
   }
