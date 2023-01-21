@@ -4,7 +4,7 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-         has_many :items, dependent: :destroy
+         has_many :comments, dependent: :destroy
          has_many :likes, dependent: :destroy
 
   def self.guest

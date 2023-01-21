@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-  has_many :items, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
   
   enum genre: { spring: 0, summer: 1,fall: 2,winter: 3, }

@@ -3,16 +3,18 @@ Rails.application.routes.draw do
   root to: "public/items#index"
 
   namespace :admin do
-    resources :comments, only: [:show, :index, :destroy]
     patch 'customers/withdraw' => "customers#withdraw"
-    resources :customers, only: [:index]
-    resources :items, only: [:new, :index, :create, :show, :edit, :update]
+    resources :customers, only: :index
+    resources :items, only: [:new, :index, :create, :show, :edit, :update] do
+      resources :comments, only: :destroy
+    end
   end
 
   namespace :public do
-    resources :comments, only: [:create]
     resources :likes, only: [:index, :create, :destroy]
-    resources :items, only: [:show]
+    resources :items, only: [:show] do
+      resources :comments, only: [:create, :destroy]
+    end
   end
 
   devise_scope :customer do

@@ -1,2 +1,80 @@
-<h1>Public::Animes#index</h1>
-<p>Find me in app/views/public/animes/index.html.erb</p>
+<div class="container">
+
+<h2>アニメ一覧</h2>
+
+  <div class="row">
+
+    <div class="col-2">
+      <table>
+        <tr>
+        <th width="100" class="border-bottom text-center">季節</th>
+        </tr>
+        
+        <tr>
+          <td>
+           <% Item.genres.keys.each do |genre| %>
+           <div class="text-center">
+            <%= link_to admin_items_path(genre: genre) do %>
+              <%= I18n.t("enums.item.genre.#{genre}") %>
+            <% end %>
+           </div>
+           <% end %>
+          </td>
+        </tr>
+        
+        <tr>
+        <th width="100" class="border-bottom text-center">曜日</th>
+        </tr>
+        
+        <tr>
+          <td>
+           <% Item.weekdays.keys.each do |weekday| %>
+           <div class="text-center">
+            <%= link_to admin_items_path(weekday: weekday) do %>
+              <%= I18n.t("enums.item.weekday.#{weekday}") %>
+            <% end %>
+           </div>
+           <% end %>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="col-10">
+     <table>
+        <tr>
+          <td width="100">
+            <h5>季節</h5>
+          </td>
+
+          <td width="100">
+            <h5>曜日</h5>
+          </td>
+
+          <td width="800">
+            <h5>アニメ名</h5>
+          </td>
+        </tr>
+
+        <% @items.each do |item| %>
+        <tr>
+          <td>
+            <%= item.genre_i18n %>
+          </td>
+
+          <td>
+            <%= item.weekday_i18n %>
+          </td>
+
+          <td>
+            <%= link_to admin_item_path(item.id) do %>
+            <%= item.name %>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+
+  </div>
+</div>

@@ -1,14 +1,6 @@
 class Admin::CommentsController < ApplicationController
-  def index
-    @items = Item.page(params[:page])
-  end
-  
-  def show
-   @customer = Customer.find(params[:id])
-   @comment = Comment.find(params[:id])
-   @item = Item.find(params[:id])
-  end
-
   def destroy
+    Comment.find(params[:id]).destroy
+    redirect_to admin_item_path(params[:item_id])
   end
 end

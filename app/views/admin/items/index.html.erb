@@ -9,24 +9,34 @@
         <tr>
         <th width="100" class="border-bottom text-center">季節</th>
         </tr>
-        <% @items.each do |item| %>
-        <td>
-          <%= link_to admin_items_path(genre:item.genre) do %>
-          <%= item.genre_i18n %>
-          <% end %>
-        </td>
-        <% end %>
-
+        
+        <tr>
+          <td>
+           <% Item.genres.keys.each do |genre| %>
+           <div class="text-center">
+            <%= link_to admin_items_path(genre: genre) do %>
+              <%= I18n.t("enums.item.genre.#{genre}") %>
+            <% end %>
+           </div>
+           <% end %>
+          </td>
+        </tr>
+        
         <tr>
         <th width="100" class="border-bottom text-center">曜日</th>
         </tr>
-        <% @items.each do |item| %>
-        <td>
-          <%= link_to admin_items_path do %>
-          <%= item.weekday_i18n %>
-          <% end %>
-        </td>
-        <% end %>
+        
+        <tr>
+          <td>
+           <% Item.weekdays.keys.each do |weekday| %>
+           <div class="text-center">
+            <%= link_to admin_items_path(weekday: weekday) do %>
+              <%= I18n.t("enums.item.weekday.#{weekday}") %>
+            <% end %>
+           </div>
+           <% end %>
+          </td>
+        </tr>
       </table>
     </div>
 
