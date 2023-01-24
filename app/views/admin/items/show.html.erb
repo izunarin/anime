@@ -1,71 +1,86 @@
 <div class="container">
   <h2>アニメ詳細</h2>
 
-  <div class="row">
-    <table>
-     <tr>
-        <td width="200">
-          <h4>アニメ名</h4>
-        </td>
-        <td width="300"></td>
-      </tr>
-
-      <tr>
-        <td colspan="2">
-          <%= @item.name %>
-        </td>
-      </tr>
-
-　　　<tr>
-        <td>
-          <h4>季節</h4>
-        </td>
-
-        <td>
-          <h4>曜日</h4>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <%= @item.genre_i18n %>
-        </td>
-
-        <td>
-          <%= @item.weekday_i18n %>
-        </td>
-      </tr>
-
-      <tr>
-        <td>
-          <h4>アニメ説明</h4>
-        </td>
-      </tr>
-
-      <tr>
-       <td colspan="2"><%= @item.introduction %></td>
-      </tr>
-
-      <tr>
-        <td>
-          <h4>アニメURL</h4>
-        </td>
-      </tr>
-
-      <tr>
-        <td colspan="2">
-          <%=link_to  "Amazon Prime Videoリンク",@item.url %>
-        </td>
-      </tr>
+  <table>
+    <tr>
+      <td>
+        <h4>アニメ名</h4>
+      </td>
+    </tr>
 
     <tr>
-     <td></td>
-     <td><%= link_to edit_admin_item_path(@item.id) do %>
-       <h3 class="btn btn-success">編集する</h3>
-     <% end %>
-     </td>
-   </tr>
-    </table>
+      <td>
+        <h3><%= @item.name %></h3>
+      </td>
+    </tr>
+  </table>
+      
+   <div class="p-1">　</div>
+
+  <table>
+    <tr>
+      <td width="200">
+        <h4>季節</h4>
+      </td>
+
+      <td>
+        <h4>曜日</h4>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <%= @item.genre_i18n %>
+      </td>
+
+      <td>
+        <%= @item.weekday_i18n %>
+      </td>
+    </tr>
+  </table>
+      
+  <div class="p-1">　</div>
+
+  <table>
+    <tr>
+      <td>
+        <h4>アニメ説明</h4>
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2"><%= @item.introduction %></td>
+    </tr>
+  </table>
+      
+  <div class="p-3">　</div>
+
+  <table>
+    <tr>
+      <td>
+        <h4>アニメURL</h4>
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <%=link_to  "Amazon Prime Videoリンク",@item.url %>
+      </td>
+    </tr>
+  </table>
+      
+  <div class="p-1">　</div>
+
+  <table>
+    <tr>
+      <td></td>
+      <td>
+        <%= link_to edit_admin_item_path(@item.id) do %>
+          <h3 class="btn btn-success">編集する</h3>
+        <% end %>
+      </td>
+    </tr>
+  </table>
 
 
      <% @item.comments.each do |comment| %>

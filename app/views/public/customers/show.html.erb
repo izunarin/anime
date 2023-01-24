@@ -1,0 +1,48 @@
+<div class="container">
+    <table>
+      <tr>
+        <td width="200">
+          <h2>マイページ</h2>
+        </td>
+
+        <td>
+          <%= link_to  likes_public_customer_path(@customer.id) do %>
+            <h3 class="btn btn-success">いいね一覧</h3>
+          <% end %>
+        </td>
+      </tr>
+    </table>
+
+    <div class="p-2">　</div>
+
+    <table>
+     <tr>
+        <td width="200">
+          <h5>名前</h5>
+        </td>
+
+        <td width="300">
+          <%= @customer.name %>
+        </td>
+      </tr>
+
+　　　<tr>
+        <td width="200">
+          <h5>メールアドレス</h5>
+        </td>
+
+        <td width="300">
+          <%= @customer.email %>
+        </td>
+      </tr>
+
+    <tr>
+      <td></td>
+      <td>
+        <%= link_to  edit_public_customer_path(@customer.id) do %>
+          <h3 class="btn btn-success">編集する</h3>
+        <% end %>
+     </td>
+   </tr>
+    </table>
+</div>

@@ -1,12 +1,12 @@
 <div class="container">
   <h1>いいね一覧</h1>
   <div class="row">
-    <table>
+    <table class="table">
       <%  @like_items.each do |like| %>
       <tr>
         <td>
-          <%= link_to public_item_path(@item.id) do %>
-            <%= like.item.name %>
+          <%= link_to public_item_path(like.id) do %>
+            <%= like.name %>
           <% end %>
         </td>
       </tr>
