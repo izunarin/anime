@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+@import "simple_calendar";
+
+.simple-calendar {
+  font-size: 15px !important;
+}
+
+.simple-calendar .day {
+    height: 30px;
+}
