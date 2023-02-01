@@ -52,11 +52,13 @@
                 <% end %>
               </li>
 
+              <% unless current_customer.email == "guest@example.com" %>
               <li class="nav-item">
                 <%= link_to  public_customer_path(:id), class: "nav-link text-light" do %>
                 <span><i class="fa-solid fa-heart"></i>マイページ</span>
                 <% end %>
               </li>
+              <% end %>
 
               <li class="nav-item">
                 <%= link_to  destroy_customer_session_path,method: :delete, class: "nav-link text-light" do %>
