@@ -1,6 +1,7 @@
 <div class="container">
   <h1>会員一覧</h1>
   <div class="row">
+    <!--ユーザー一覧機能-->
     <table>
       <thead>
         <tr class="border-top border-bottom">
@@ -20,6 +21,7 @@
             <%= customer.email %>
           </td>
           
+          <!--ユーザー退会機能-->
           <td>
             <% if customer.is_deleted == false %>
               <%= link_to  admin_path(customer), method: :patch, data: { confirm: "本当に退会させますか？" } do %>

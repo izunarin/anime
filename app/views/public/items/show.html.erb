@@ -12,6 +12,7 @@
           <h3><%= @item.name %></h3>
         </td>
         
+        <!--いいね機能-->
         <td>
           <% if @item.like_by?(current_customer) %>
             <p>
@@ -79,14 +80,14 @@
 
       <tr>
         <td colspan="2">
-          <%=link_to  "アニメリンク",@item.url %>
+          <%=link_to  "Amazon Prime Videoリンク",@item.url %>
         </td>
       </tr>
       </table>
       
       <div class="p-1">　</div>
 
-    
+    <!--コメント機能-->
     <div>
      <%= form_with model: [@item, @comment], url: public_item_comments_path(@item) do |f| %>
        <%= f.text_area :comment, rows: '3', placeholder: "コメントをここに", cols: "100" %><br/>
