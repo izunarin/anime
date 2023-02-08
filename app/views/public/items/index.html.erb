@@ -38,6 +38,22 @@
            <% end %>
           </td>
         </tr>
+        
+        <tr>
+        <th width="100" class="border-bottom text-center">西暦</th>
+        </tr>
+
+        <tr>
+          <td>
+           <% @years.each do |year|%>
+           <div class="text-center">
+            <%= link_to admin_items_path(year: year) do %>
+              <%= year %>
+            <% end %>
+           </div>
+           <% end %>
+          </td>
+        </tr>
       </table>
 
 

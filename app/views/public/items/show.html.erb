@@ -39,8 +39,12 @@
           <h4>季節</h4>
         </td>
 
-        <td>
+         <td width="200">
           <h4>曜日</h4>
+        </td>
+        
+        <td>
+          <h4>西暦</h4>
         </td>
       </tr>
 
@@ -51,6 +55,10 @@
 
         <td>
           <%= @item.weekday_i18n %>
+        </td>
+        
+        <td>
+          <%= @item.year %>年
         </td>
       </tr>
       </table>

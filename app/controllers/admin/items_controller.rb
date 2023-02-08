@@ -9,9 +9,12 @@ class Admin::ItemsController < ApplicationController
       @items = Item.where(genre: params[:genre]).page(params[:page])
     elsif params[:weekday].present?
       @items = Item.where(weekday: params[:weekday]).page(params[:page])
+    elsif params[:year].present?
+      @items = Item.where(year: params[:year]).page(params[:page])
     else
       @items = Item.page(params[:page])
     end
+     @years = Item.group(:year).order(:year).pluck(:year)
   end
 
   def create
@@ -37,6 +40,6 @@ class Admin::ItemsController < ApplicationController
     private
 
   def item_params
-    params.require(:item).permit(:introduction, :name, :genre, :weekday, :url)
+    params.require(:item).permit(:introduction, :name, :genre, :weekday, :url, :year)
   end
 end

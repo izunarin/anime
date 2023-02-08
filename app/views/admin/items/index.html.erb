@@ -10,7 +10,7 @@
         <tr>
         <th width="100" class="border-bottom text-center">季節</th>
         </tr>
-        
+
         <tr>
           <td>
            <% Item.genres.keys.each do |genre| %>
@@ -22,17 +22,33 @@
            <% end %>
           </td>
         </tr>
-        
+
         <tr>
         <th width="100" class="border-bottom text-center">曜日</th>
         </tr>
-        
+
         <tr>
           <td>
            <% Item.weekdays.keys.each do |weekday| %>
            <div class="text-center">
             <%= link_to admin_items_path(weekday: weekday) do %>
               <%= I18n.t("enums.item.weekday.#{weekday}") %>
+            <% end %>
+           </div>
+           <% end %>
+          </td>
+
+          <tr>
+            
+        <th width="100" class="border-bottom text-center">西暦</th>
+        </tr>
+
+        <tr>
+          <td>
+           <% @years.each do |year|%>
+           <div class="text-center">
+            <%= link_to admin_items_path(year: year) do %>
+              <%= year %>
             <% end %>
            </div>
            <% end %>

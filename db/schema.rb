@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2023_01_11_124858) do
   create_table "items", force: :cascade do |t|
     t.integer "genre", null: false
     t.integer "weekday", null: false
+    t.integer "year", null: false
     t.text "name", null: false
     t.text "introduction", null: false
     t.text "url", null: false
