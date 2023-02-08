@@ -47,7 +47,7 @@
           <td>
            <% @years.each do |year|%>
            <div class="text-center">
-            <%= link_to admin_items_path(year: year) do %>
+            <%= link_to root_path(year: year) do %>
               <%= year %>
             <% end %>
            </div>
