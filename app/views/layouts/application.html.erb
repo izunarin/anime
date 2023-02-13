@@ -55,7 +55,7 @@
 
               <% unless current_customer.email == "guest@example.com" %>
               <li class="nav-item">
-                <%= link_to  public_customer_path(:id), class: "nav-link text-light" do %>
+                <%= link_to  public_customer_path(current_customer.id), class: "nav-link text-light" do %>
                 <span><i class="fa-solid fa-heart"></i>マイページ</span>
                 <% end %>
               </li>

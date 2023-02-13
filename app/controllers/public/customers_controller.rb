@@ -2,8 +2,8 @@ class Public::CustomersController < ApplicationController
 before_action :authenticate_customer!
 
   def likes
-    @customer = Customer.find(params[:id])
-    likes = Like.where(customer_id: @customer.id).pluck(:item_id)
+    customer = Customer.find(params[:id])
+    likes = Like.where(customer_id: customer.id).pluck(:item_id)
     @like_items = Item.find(likes)
   end
 
@@ -12,7 +12,11 @@ before_action :authenticate_customer!
   end
 
   def edit
-    @customer = current_customer
+    if current_customer.email == "guest@example.com"
+      redirect_to root_path
+    else
+      @customer = current_customer
+    end
   end
 
   def update

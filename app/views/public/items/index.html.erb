@@ -3,7 +3,7 @@
   <h2>アニメ一覧</h2>
   <h6>※アニメのリンクはAmazon Prime Videoです。</h6>
   <div class="row">
-    
+
     <!--ｼﾞｬﾝﾙ機能-->
     <div class="col-10 d-flex align-items-start">
         <table>
@@ -38,7 +38,7 @@
            <% end %>
           </td>
         </tr>
-        
+
         <tr>
         <th width="100" class="border-bottom text-center">西暦</th>
         </tr>
@@ -91,7 +91,7 @@
               <%= item.name %>
             <% end %>
           </td>
-          
+
           <!--いいね機能-->
           <% if customer_signed_in? %>
 
@@ -112,7 +112,7 @@
       </table>
 
     </div>
-      
+
       <!--カレンダー機能-->
       <div class="col-2">
         <%= month_calendar do |date| %>
